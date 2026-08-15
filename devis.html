@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Demandez un devis à Irchad Company pour vos matériaux de construction, livraison et approvisionnement de chantier.">
+	<title>Demande de devis | Irchad Company</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="brand" href="index.html"><div class="brand-mark">IC</div><div class="brand-text"><strong>Irchad Company</strong><span>Matériaux de construction - Fresnes</span></div></a>
+			<nav class="nav" aria-label="Navigation principale">
+				<a href="index.html">Accueil</a>
+				<a href="a-propos.html">A propos</a>
+				<a href="services.html">Services</a>
+				<a href="produits.html">Produits</a>
+				<a href="realisations.html">Réalisations</a>
+				<a class="active" href="devis.html">Devis</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+			<div class="header-actions">
+				<a class="button-ghost" href="tel:+33678129414">Appeler</a>
+				<a class="button" href="contact.html">Nous contacter</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="page-hero">
+			<div class="container">
+				<span class="eyebrow">Demande de devis</span>
+				<h1>Envoyez votre besoin en quelques minutes.</h1>
+				<p class="section-lead">Le formulaire ci-dessous part automatiquement vers Irchad Company. Vous pouvez l'utiliser sans back-end, directement depuis le navigateur.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container contact-grid">
+				<article class="form-card">
+					<h3>Formulaire de devis</h3>
+					<form id="quoteForm">
+						<div class="form-grid">
+							<div class="field"><label for="name">Nom</label><input id="name" name="name" type="text" required></div>
+							<div class="field"><label for="company">Société</label><input id="company" name="company" type="text"></div>
+							<div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" required></div>
+							<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+							<div class="field"><label for="city">Ville</label><input id="city" name="city" type="text"></div>
+							<div class="field"><label for="product">Produits recherchés</label><input id="product" name="product" type="text"></div>
+							<div class="field"><label for="quantity">Quantités</label><input id="quantity" name="quantity" type="text"></div>
+							<div class="field"><label for="date">Date souhaitée</label><input id="date" name="date" type="date"></div>
+							<div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Décrivez votre besoin, l'adresse de livraison et toute précision utile."></textarea></div>
+						</div>
+						<div class="card-actions">
+							<button class="button" type="submit">Envoyer la demande</button>
+							<a class="button-secondary" href="mailto:irchadcompany@gmail.com">Envoyer par email</a>
+						</div>
+					</form>
+				</article>
+
+				<aside class="contact-card">
+					<span class="eyebrow">Contact direct</span>
+					<h3>Irchad Company</h3>
+					<p>28 Avenue des pepinieres, 94260 Fresnes</p>
+					<div class="contact-list">
+						<div class="contact-item"><div class="contact-icon">T</div><div><strong>Téléphone</strong><a href="tel:+33678129414">06 78 12 94 14</a></div></div>
+						<div class="contact-item"><div class="contact-icon">@</div><div><strong>Email</strong><a href="mailto:irchadcompany@gmail.com">irchadcompany@gmail.com</a></div></div>
+						<div class="contact-item"><div class="contact-icon">H</div><div><strong>Horaires</strong><span>Lun - Sam, 08:00 - 18:00</span></div></div>
+					</div>
+				</aside>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer-inner">
+			<div><strong>Irchad Company</strong><div>28 Avenue des pepinieres, 94260 Fresnes</div></div>
+			<div>SIRET 93920273500014 - 06 78 12 94 14 - irchadcompany@gmail.com</div>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('quoteForm').addEventListener('submit', async (event) => {
+			event.preventDefault();
+			const form = event.currentTarget;
+			const submitButton = form.querySelector('button[type="submit"]');
+			const originalLabel = submitButton.textContent;
+			submitButton.disabled = true;
+			submitButton.textContent = 'Envoi en cours...';
+
+			const payload = Object.fromEntries(new FormData(form).entries());
+			payload._subject = 'Demande de devis - Irchad Company';
+			payload._captcha = 'false';
+
+			try {
+				const response = await fetch('https://formsubmit.co/ajax/irchadcompany@gmail.com', {
+					method: 'POST',
+					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload)
+				});
+
+				if (!response.ok) {
+					throw new Error('Envoi impossible');
+				}
+
+				form.reset();
+				window.alert('Votre demande de devis a bien été envoyée.');
+			} catch (error) {
+				window.alert('Impossible d’envoyer la demande pour le moment. Contactez Irchad Company directement.');
+			} finally {
+				submitButton.disabled = false;
+				submitButton.textContent = originalLabel;
+			}
+		});
+	</script>
+</body>
+</html>
