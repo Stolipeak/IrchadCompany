@@ -20,16 +20,16 @@
 	<script src="main.js" defer></script>
 	<style>
 		:root {
-			--bg: #0b0b0c;
-			--bg-soft: #111113;
+			--bg: #0f1729;
+			--bg-soft: #1a2744;
 			--panel: rgba(255, 255, 255, 0.06);
 			--panel-strong: rgba(255, 255, 255, 0.09);
 			--text: #f5f5f3;
 			--muted: rgba(245, 245, 243, 0.72);
 			--soft: rgba(245, 245, 243, 0.12);
 			--line: rgba(255, 255, 255, 0.12);
-			--accent: #d64b3d;
-			--accent-2: #ff7a66;
+			--accent: #2C5282;
+			--accent-2: #4299E1;
 			--good: #89e6c6;
 			--shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
 			--radius-xl: 30px;
@@ -46,9 +46,9 @@
 			overflow-x: hidden;
 			font-family: 'Manrope', sans-serif;
 			background:
-				radial-gradient(circle at top left, rgba(214, 75, 61, 0.2), transparent 30%),
+				radial-gradient(circle at top left, rgba(44, 82, 130, 0.2), transparent 30%),
 				radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.08), transparent 22%),
-				linear-gradient(180deg, #0b0b0c 0%, #111113 45%, #0b0b0c 100%);
+				linear-gradient(180deg, #0f1729 0%, #1a2744 45%, #0f1729 100%);
 			color: var(--text);
 			line-height: 1.6;
 			text-rendering: optimizeLegibility;
@@ -78,7 +78,7 @@
 			height: 9px;
 			border-radius: 999px;
 			background: linear-gradient(135deg, var(--accent), var(--accent-2));
-			box-shadow: 0 0 0 6px rgba(214, 75, 61, 0.15);
+			box-shadow: 0 0 0 6px rgba(44, 82, 130, 0.15);
 		}
 
 		.section { padding: 96px 0; position: relative; }
@@ -193,7 +193,7 @@
 		.button {
 			background: linear-gradient(135deg, var(--accent), var(--accent-2));
 			color: white;
-			box-shadow: 0 16px 34px rgba(214, 75, 61, 0.28);
+			box-shadow: 0 16px 34px rgba(44, 82, 130, 0.28);
 		}
 		.button-secondary { background: rgba(255, 255, 255, 0.06); border-color: var(--line); color: var(--text); }
 		.button-ghost { background: transparent; border-color: var(--line); color: var(--text); }
@@ -215,7 +215,7 @@
 			width: 280px;
 			height: 280px;
 			border-radius: 50%;
-			background: radial-gradient(circle, rgba(214, 75, 61, 0.38), transparent 68%);
+			background: radial-gradient(circle, rgba(44, 82, 130, 0.38), transparent 68%);
 			pointer-events: none;
 		}
 		.hero h1 { font-size: clamp(3.3rem, 7vw, 7rem); margin-top: 18px; max-width: 10ch; }
@@ -368,7 +368,7 @@
 			border-radius: 12px;
 			display: grid;
 			place-items: center;
-			background: rgba(214, 75, 61, 0.16);
+			background: rgba(44, 82, 130, 0.16);
 			color: var(--accent-2);
 			flex-shrink: 0;
 		}
@@ -397,8 +397,8 @@
 		}
 		textarea { min-height: 132px; resize: vertical; }
 		input:focus, textarea:focus, select:focus {
-			border-color: rgba(214, 75, 61, 0.7);
-			box-shadow: 0 0 0 4px rgba(214, 75, 61, 0.14);
+			border-color: rgba(44, 82, 130, 0.7);
+			box-shadow: 0 0 0 4px rgba(44, 82, 130, 0.14);
 		}
 		select option { color: #111; }
 		.footer {
@@ -423,7 +423,7 @@
 			display: grid;
 			place-items: center;
 			background: linear-gradient(135deg, var(--accent), var(--accent-2));
-			box-shadow: 0 18px 34px rgba(214, 75, 61, 0.25);
+			box-shadow: 0 18px 34px rgba(44, 82, 130, 0.25);
 			border: 1px solid rgba(255, 255, 255, 0.12);
 		}
 		.quick-actions a:last-child { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); }
